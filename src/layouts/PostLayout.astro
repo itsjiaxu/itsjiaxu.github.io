@@ -1,33 +1,33 @@
 ---
-import AdjacentPostsBar from '@/components/AdjacentPostsBar.astro'
-import TagsBar from '@/components/TagsBar.astro'
-import ToC from '@/components/ToC.astro'
+import AdjacentPostsBar from "@/components/AdjacentPostsBar.astro";
+import TagsBar from "@/components/TagsBar.astro";
+import ToC from "@/components/ToC.astro";
 import PageLayout, {
-  type Props as PageLayoutProps
-} from '@/layouts/PageLayout.astro'
-import HeadingAnchorsPlugin from '@/plugins/HeadingAnchorsPlugin.astro'
-import { toDateString } from '@/util'
-import { resolveTags } from '@/util/tags'
-import { render, type CollectionEntry } from 'astro:content'
+  type Props as PageLayoutProps,
+} from "@/layouts/PageLayout.astro";
+import HeadingAnchorsPlugin from "@/plugins/HeadingAnchorsPlugin.astro";
+import { toDateString } from "@/util";
+import { resolveTags } from "@/util/tags";
+import { render, type CollectionEntry } from "astro:content";
 
 export interface Props {
-  post: CollectionEntry<'posts'>
+  post: CollectionEntry<"posts">;
 }
 
-const { post } = Astro.props
+const { post } = Astro.props;
 
 const {
   Content,
   remarkPluginFrontmatter: { readingTime },
-  headings
-} = await render(post)
+  headings,
+} = await render(post);
 
-const frontmatter: PageLayoutProps['frontmatter'] = {
+const frontmatter: PageLayoutProps["frontmatter"] = {
   ...post.data,
   openGraphImage: post.data.openGraphImage || `/posts/${post.id}.png`,
-  activeHeaderLink: 'Blog',
-  scrollProgress: true
-}
+  activeHeaderLink: "Blog",
+  scrollProgress: true,
+};
 ---
 
 <PageLayout {frontmatter}>
@@ -56,7 +56,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     !!post.data.showToC && (
       <div
         slot="aside"
-        class="border-accent mt-24 hidden border-r pr-4 opacity-75 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
+        class="border-accent hidden border-r pr-4 opacity-75 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
       >
         <ToC {headings} open />
       </div>

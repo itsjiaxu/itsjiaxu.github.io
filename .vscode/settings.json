@@ -49,5 +49,9 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "stylelint.validate": ["html", "css"]
+  "stylelint.validate": [
+    "html",
+    "css"
+  ],
+  "liveServer.settings.multiRootWorkspaceName": "itsjiaxu.github.io"
 }

@@ -1,31 +1,31 @@
 ---
-import Footer from '@/components/layout/Footer.astro'
-import Header from '@/components/layout/Header.astro'
-import Prose from '@/components/layout/Prose.astro'
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import Prose from "@/components/layout/Prose.astro";
 import BaseLayout, {
-  type Props as BaseLayoutProps
-} from '@/layouts/BaseLayout.astro'
-import ScrollProgressPlugin from '@/plugins/ScrollProgressPlugin.astro'
-import ScrollToTopPlugin from '@/plugins/ScrollToTopPlugin.astro'
-import config from '@/theme.config'
+  type Props as BaseLayoutProps,
+} from "@/layouts/BaseLayout.astro";
+import ScrollProgressPlugin from "@/plugins/ScrollProgressPlugin.astro";
+import ScrollToTopPlugin from "@/plugins/ScrollToTopPlugin.astro";
+import config from "@/theme.config";
 
 export type Props = BaseLayoutProps & {
   frontmatter: Partial<{
-    scrollProgress: boolean
-    activeHeaderLink: string
-    scrollToTop: boolean
-    searchable: boolean
-  }>
-}
+    scrollProgress: boolean;
+    activeHeaderLink: string;
+    scrollToTop: boolean;
+    searchable: boolean;
+  }>;
+};
 
-const { frontmatter } = Astro.props
+const { frontmatter } = Astro.props;
 
 const {
   scrollProgress = config.scrollProgress,
   scrollToTop = config.scrollToTop,
   activeHeaderLink,
-  searchable = false
-} = frontmatter
+  searchable = false,
+} = frontmatter;
 ---
 
 <BaseLayout frontmatter={frontmatter}>
@@ -36,7 +36,7 @@ const {
     <slot name="top" />
 
     <aside
-      class="scrollbar-hide fixed h-screen w-fit max-w-sm -translate-x-full overflow-y-auto overscroll-y-none pr-8"
+      class="scrollbar-hide fixed top-24 h-[calc(100vh-6rem)] w-fit max-w-sm -translate-x-full overflow-y-auto overscroll-y-none pr-8"
     >
       <slot name="aside" />
     </aside>
