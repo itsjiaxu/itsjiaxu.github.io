@@ -318,7 +318,7 @@ COPY --chmod=755 ./start.sh /usr/local/bin/start.sh
 
 二者区别：
 
-![区别](../../public/image.png)
+![区别](../../public/docker-04-dockerfile.png)
 
 `COPY --parents` 和 `COPY --exclude`
 

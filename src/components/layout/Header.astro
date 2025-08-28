@@ -1,25 +1,23 @@
 ---
-import logo from '@/assets/logo.svg'
-import Dropdown from '@/components/Dropdown.astro'
-import HeaderItem from '@/components/layout/HeaderItem.astro'
-import MobileNavToggle from '@/components/layout/MobileNavToggle.astro'
-import Separator from '@/components/layout/Separator.astro'
-import ModeToggle from '@/components/mode/ModeToggle.astro'
-import config from '@/theme.config'
+import Dropdown from "@/components/Dropdown.astro";
+import HeaderItem from "@/components/layout/HeaderItem.astro";
+import MobileNavToggle from "@/components/layout/MobileNavToggle.astro";
+import Separator from "@/components/layout/Separator.astro";
+import ModeToggle from "@/components/mode/ModeToggle.astro";
+import config from "@/theme.config";
 import type {
   HeaderItem as HeaderItemType,
-  NavItem as NavItemType
-} from '@/types'
-import { Image } from 'astro:assets'
+  NavItem as NavItemType,
+} from "@/types";
 
 export interface Props {
-  activeHeaderLink?: string
+  activeHeaderLink?: string;
 }
 
-const { activeHeaderLink } = Astro.props
+const { activeHeaderLink } = Astro.props;
 
 export const isNavItem = (item: HeaderItemType): item is NavItemType =>
-  Object.hasOwn(item, 'href')
+  Object.hasOwn(item, "href");
 ---
 
 <header>
@@ -28,12 +26,12 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
   >
   <div class="flex justify-between py-4 sm:py-8">
     <a href="/" class="text-accent flex gap-2 text-2xl font-semibold">
-      <Image
+      <!-- <Image
         alt="Nordlys logo, a drawing of two gray mountains with green northern lights in the background"
         src={logo}
         height={24}
         loading="eager"
-      />
+      /> -->
       {config.title}
     </a>
     <nav class="hidden flex-col justify-end sm:flex">
