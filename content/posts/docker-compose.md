@@ -1,7 +1,7 @@
 ---
 title: Docker compose
 description: Docker compose
-publishedDate: 2025-08-28
+publishedDate: 2025-08-24
 tags:
   - documentation
   - docker
